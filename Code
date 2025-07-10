@@ -1,0 +1,71 @@
+print("PROJECT: “Vehicle Zoo - Abstract Garage” 🚗🏍️🦅")
+print("\n")
+
+cars = list()
+while (car := input("favourite car brands? ")) != "q":
+    cars.append(car)
+
+def format_color(color, func):
+    return func(color)
+
+def change_color(vehicle, color, formatter):
+    vehicle.color = format_color(color, formatter)
+
+class Car:
+    color = None
+    def go(self):
+        print("Toyota is driving")
+    def stop(self):
+        print("Toyota stopped driving")
+
+class Motorcycle:
+    color = None
+    def go(self):
+        print("this bike is driving")
+    def stop(self):
+        print("this bike stopped driving")
+
+class Plane:
+    color = None
+    def go(self):
+        print("This airplane is flying")
+    def stop(self):
+        print("this airplane stopped flying")
+
+class Fix():
+    def fixing(self, car):
+        car.go()
+        car.stop()
+        print("fixing it🔧")
+
+fix = Fix()
+car = Car()
+motorcycle = Motorcycle()
+plane = Plane()
+
+car.go()
+car.stop()
+change_color(car, "red", str.upper)
+print("This car color is", car.color)
+print("\n")
+
+plane.go()
+plane.stop()
+change_color(plane, "blue", str.lower)
+print("This plane color is", plane.color)
+print("\n")
+
+motorcycle.go()
+motorcycle.stop()
+change_color(motorcycle, "pink", lambda c: c.capitalize())
+print("This bike color is", motorcycle.color)
+print("\n")
+
+print("----------------------------------------------------")
+fix.fixing(car)
+
+print("----------------------------------------------------")
+fix.fixing(motorcycle)
+
+print("----------------------------------------------------")
+fix.fixing(plane)
